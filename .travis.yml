@@ -4,8 +4,6 @@ env:
       - BUILD_COMMIT=master
       - PLAT=x86_64
       - UNICODE_WIDTH=32
-      - BUILD_DEPENDS="cython numpy scipy statsmodels pandas mpmath regreg pyinter sklearn traitlets"
-      - TEST_DEPENDS="cython numpy scipy statsmodels pandas mpmath regreg pyinter sklearn traitlets nose"
       - NP_BUILD_DEP="numpy==1.7.1"
       - NP_TEST_DEP="numpy==1.7.1"
       - WHEELHOUSE_UPLOADER_USERNAME=travis-worker
@@ -112,6 +110,8 @@ before_install:
           CONTAINER=wheels;
           UPLOAD_ARGS="--no-update-index";
       fi
+    - BUILD_DEPENDS="cython $NP_BUILD_DEP"
+    - TEST_DEPENDS="cython $NP_BUILD_DEP scipy pandas"
     - source multibuild/common_utils.sh
     - source multibuild/travis_steps.sh
     - before_install
