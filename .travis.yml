@@ -6,6 +6,8 @@ env:
       - UNICODE_WIDTH=32
       - BUILD_DEPENDS="cython numpy scipy statsmodels pandas mpmath regreg pyinter sklearn traitlets"
       - TEST_DEPENDS="cython numpy scipy statsmodels pandas mpmath regreg pyinter sklearn traitlets nose"
+      - NP_BUILD_DEP="numpy==1.7.1"
+      - NP_TEST_DEP="numpy==1.7.1"
       - WHEELHOUSE_UPLOADER_USERNAME=travis-worker
       # Following generated with
       # travis encrypt -r scikit-image/scikit-image-wheels WHEELHOUSE_UPLOADER_SECRET=<the api key>
