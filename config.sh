@@ -11,5 +11,5 @@ function run_tests {
     # Runs tests on installed distribution from an empty directory
     python --version
     echo "backend : agg" > matplotlibrc
-    env USE_SMALL_SAMPLES=1 USE_TEST_SEED=1 nosetests --verbose selection
+    env USE_SMALL_SAMPLES=1 USE_TEST_SEED=1 nosetests --verbose selectinf
 }
