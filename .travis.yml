@@ -1,137 +1,84 @@
 env:
   global:
-      - REPO_DIR="Python-software"
-      - BUILD_COMMIT=master
-      - PLAT=x86_64
-      - UNICODE_WIDTH=32
-      - NP_BUILD_DEP="numpy==1.8.1"
-      - NP_TEST_DEP="numpy==1.8.1"
-      - PANDAS_TEST_DEP="pandas==0.20.0"
-      - WHEELHOUSE_UPLOADER_USERNAME=travis-worker
-      # Following generated with
-      # travis encrypt -r scikit-image/scikit-image-wheels WHEELHOUSE_UPLOADER_SECRET=<the api key>
-      - secure:
-          "b5W3mu7Weluq+FgmBhm1+0wDsZwJ2vbOYwmcLFShQGHAzm1cLaXOC0s6jW92HCJBO3vf/uT0XUiGFM8E5frX73uxHfNlcbOf+86WKbsGBDNEtR1IQkWz0+9oOvwOv+zRis9eH6nvwYQD3rScLcKeUaQx+S9pkptfXTu3Kkbf7y0+nkUOVf7ES61AIhqKOklztAiNfjHDXQhzD44/cjwHtApn8pjeZHoXqiSv/Op1T2E1wau43P7WogCiI1pBb0WxjIZqjpiQLa9FBRBo3CVQYsrhe5ORSInFszfKk8hNHpA9K6g70XReKciN1TV4BbrV92q223u8csqAhQGdcI4qQ+EEzHfpxQ+dVqU6qxgvcH6G0M/PGBTehkJpkwzBvY/EAQjXGcRsBMb8S6XZaV6nSXhCwpRrCiTSqQB8Gkb7tn8qFvGKUBhe3itU8ZpcFpBKPA4NmdwKreFkv8kXkx5GSCS1QzmPFDAVrcR6wQNuEpck1wLe7ui1j1X0y8zhdHt0Nvcwid7xDFTQTFPS5CHCnyRWv2DQpxFzS99DOuByywMTdO0FRFmZHSKmJoEXT6Gwk/Vo7quYRVXds/uyygWkaPucq1i9bCCbViDZImkyonqTM7EIPsasD0iZb1Udkz6LqP5FwKAe+1InBA1LCD9HbSPboRm3hGErGeKX5MEB3a8="
-      # Commit when running from daily branch
-      - DAILY_COMMIT=master
-
+  - REPO_DIR="Python-software"
+  - BUILD_COMMIT=master
+  - PLAT=x86_64
+  - UNICODE_WIDTH=32
+  - NP_BUILD_DEP="numpy==1.8.1"
+  - NP_TEST_DEP="numpy==1.8.1"
+  - PANDAS_TEST_DEP="pandas==0.20.0"
+  - WHEELHOUSE_UPLOADER_USERNAME=travis-worker
+  - DAILY_COMMIT=master
+  - secure: GvBPjG1wglLiG3lpg8aNVKUwSeMXmgLS+ul14fdAd6rFi5E0tRQ/fidnOKWuD8jPHs9TTU7onbeGdW5soZtMfX2UleHKBI/6Wwk5kMLbxAbUO/5kOHxf8AnBaikz0Bd9Hjz2IrsQavPJDNYL+KXFveLOpfN2cc/Ae9HJ+1y33jEuNrhr7swGcHyWs1QOZiSGDRyue6FVH56A64SNDivtbOQ6DSoD7RgqBpRtdJPJvNzi6stcSyZys5dctpO0smWOAmO6+bymlZLuxe3ZBcbREq1XSQ1MOIyses/oh9mp+5rgw3V6jFhReZL/gwEpRAKmhd5W1VFoya7eu8ch2Q8zhUYbKvvQafx2NZnDPn5r9rIybloy3g3D6wqG1YNOyqhAbGTESKKKeJo39N/SIcmT4R1GD1R6cyFgZtZt49qm2Pi12zjGHBqRiTFrrxG7laOyf6xwf+5evOthy/ZYo03+/kdY/+54uiog0UPkOKNZxyCAtrL8+t1N/9AuoeL6s8XIFx/y7KCWlT84Wx7xtOgspebjL102bI8JM1f5AQ0yANtThxwPYeDwSNhnCXDhmz+Hwl3oXPE63//nxATT1Y4ZWdrmOJwG7UDLu2dZV4WOMwFZL49EBNKkgsIlZBIR90FMlEz1A2cdnVCqj3h+YKgCFkz7ARg98Ftfr6l4bDXoHfo=
 language: python
-# Default Python version is usually 2.7
 python: 3.5
 sudo: required
 dist: trusty
 services: docker
-
 matrix:
   exclude:
-      # Exclude the default Python 3.5 build
-      - python: 3.5
+  - python: 3.5
   include:
-#     - os: linux
-#       env:
-#         - MB_PYTHON_VERSION=2.7
-#     - os: linux
-#       env:
-#         - MB_PYTHON_VERSION=2.7
-#         - UNICODE_WIDTH=16
-#     - os: linux
-#       env:
-#         - MB_PYTHON_VERSION=2.7
-#         - PLAT=i686
-#     - os: linux
-#       env:
-#         - MB_PYTHON_VERSION=2.7
-#         - PLAT=i686
-#         - UNICODE_WIDTH=16
-#     - os: linux
-#       env:
-#         - MB_PYTHON_VERSION=3.4
-#         - NP_TEST_DEP=numpy==1.8.2
-#     - os: linux
-#       env:
-#         - MB_PYTHON_VERSION=3.4
-#         - PLAT=i686
-#         - NP_TEST_DEP=numpy==1.8.2
-    - os: linux
-      env:
-        - MB_PYTHON_VERSION=3.5
-        - NP_BUILD_DEP=numpy==1.9.3
-        - NP_TEST_DEP=numpy==1.9.3
-    - os: linux
-      env:
-        - MB_PYTHON_VERSION=3.5
-        - PLAT=i686
-        - NP_BUILD_DEP=numpy==1.9.3
-        - NP_TEST_DEP=numpy==1.9.3
-    - os: linux
-      env:
-        - MB_PYTHON_VERSION=3.6
-        - NP_BUILD_DEP=numpy==1.11.3
-        - NP_TEST_DEP=numpy==1.11.3
-    - os: linux
-      env:
-        - MB_PYTHON_VERSION=3.6
-        - PLAT=i686
-        - NP_BUILD_DEP=numpy==1.11.3
-        - NP_TEST_DEP=numpy==1.11.3
-    - os: linux
-      env:
-        - MB_PYTHON_VERSION=3.7
-        - PLAT=i686
-        - NP_BUILD_DEP=numpy==1.15.0
-        - NP_TEST_DEP=numpy==1.15.0
-#     - os: osx
-#       language: generic
-#       env: MB_PYTHON_VERSION=2.7
-#     - os: osx
-#       language: generic
-#       env:
-#         - MB_PYTHON_VERSION=3.4
-    - os: osx
-      language: generic
-      env:
-        - MB_PYTHON_VERSION=3.5
-        - NP_BUILD_DEP=numpy==1.9.3
-        - NP_TEST_DEP=numpy==1.9.3
-    - os: osx
-      language: generic
-      env:
-        - MB_PYTHON_VERSION=3.6
-        - NP_BUILD_DEP=numpy==1.11.3
-        - NP_TEST_DEP=numpy==1.11.3
-    - os: osx
-      language: generic
-      env:
-        - MB_PYTHON_VERSION=3.7
-        - NP_BUILD_DEP=numpy==1.15.0
-        - NP_TEST_DEP=numpy==1.15.0
-
+  - os: linux
+    env:
+    - MB_PYTHON_VERSION=3.5
+    - NP_BUILD_DEP=numpy==1.9.3
+    - NP_TEST_DEP=numpy==1.9.3
+  - os: linux
+    env:
+    - MB_PYTHON_VERSION=3.5
+    - PLAT=i686
+    - NP_BUILD_DEP=numpy==1.9.3
+    - NP_TEST_DEP=numpy==1.9.3
+  - os: linux
+    env:
+    - MB_PYTHON_VERSION=3.6
+    - NP_BUILD_DEP=numpy==1.11.3
+    - NP_TEST_DEP=numpy==1.11.3
+  - os: linux
+    env:
+    - MB_PYTHON_VERSION=3.6
+    - PLAT=i686
+    - NP_BUILD_DEP=numpy==1.11.3
+    - NP_TEST_DEP=numpy==1.11.3
+  - os: linux
+    env:
+    - MB_PYTHON_VERSION=3.7
+    - PLAT=i686
+    - NP_BUILD_DEP=numpy==1.15.0
+    - NP_TEST_DEP=numpy==1.15.0
+  - os: osx
+    language: generic
+    env:
+    - MB_PYTHON_VERSION=3.5
+    - NP_BUILD_DEP=numpy==1.9.3
+    - NP_TEST_DEP=numpy==1.9.3
+  - os: osx
+    language: generic
+    env:
+    - MB_PYTHON_VERSION=3.6
+    - NP_BUILD_DEP=numpy==1.11.3
+    - NP_TEST_DEP=numpy==1.11.3
+  - os: osx
+    language: generic
+    env:
+    - MB_PYTHON_VERSION=3.7
+    - NP_BUILD_DEP=numpy==1.15.0
+    - NP_TEST_DEP=numpy==1.15.0
 before_install:
-    - if [ "$TRAVIS_BRANCH" == "daily" ]; then
-          CONTAINER="pre-release";
-          BUILD_COMMIT=${DAILY_COMMIT:-$BUILD_COMMIT};
-      else
-          CONTAINER=wheels;
-          UPLOAD_ARGS="--no-update-index";
-      fi
-    - BUILD_DEPENDS="cython $NP_BUILD_DEP"
-    - TEST_DEPENDS="cython $NP_BUILD_DEP scipy nose mpmath regreg pyinter pandas sklearn"
-    - source multibuild/common_utils.sh
-    - source multibuild/travis_steps.sh
-    - before_install
-
+- if [ "$TRAVIS_BRANCH" == "daily" ]; then CONTAINER="pre-release"; BUILD_COMMIT=${DAILY_COMMIT:-$BUILD_COMMIT};
+  else CONTAINER=wheels; UPLOAD_ARGS="--no-update-index"; fi
+- BUILD_DEPENDS="cython $NP_BUILD_DEP"
+- TEST_DEPENDS="cython $NP_BUILD_DEP scipy nose mpmath regreg pyinter pandas sklearn"
+- source multibuild/common_utils.sh
+- source multibuild/travis_steps.sh
+- before_install
 install:
-    # Maybe get and clean and patch source
-    - clean_code $REPO_DIR $BUILD_COMMIT
-    - build_wheel $REPO_DIR $PLAT
-
+- clean_code $REPO_DIR $BUILD_COMMIT
+- build_wheel $REPO_DIR $PLAT
 script:
-    - install_run $PLAT
-
+- install_run $PLAT
 after_success:
-    # Upload wheels to Rackspace container
-    - pip install wheelhouse-uploader
-    - python -m wheelhouse_uploader upload --local-folder
-          ${TRAVIS_BUILD_DIR}/wheelhouse/
-          $UPLOAD_ARGS
-          $CONTAINER
+- pip install wheelhouse-uploader
+- python -m wheelhouse_uploader upload --local-folder ${TRAVIS_BUILD_DIR}/wheelhouse/
+  $UPLOAD_ARGS $CONTAINER
