@@ -1,15 +1,16 @@
 env:
   global:
-  - REPO_DIR="Python-software"
-  - BUILD_COMMIT=master
-  - PLAT=x86_64
-  - UNICODE_WIDTH=32
-  - NP_BUILD_DEP="numpy==1.8.1"
-  - NP_TEST_DEP="numpy==1.8.1"
-  - PANDAS_TEST_DEP="pandas==0.20.0"
-  - WHEELHOUSE_UPLOADER_USERNAME=travis-worker
-  - DAILY_COMMIT=master
-  - secure: GvBPjG1wglLiG3lpg8aNVKUwSeMXmgLS+ul14fdAd6rFi5E0tRQ/fidnOKWuD8jPHs9TTU7onbeGdW5soZtMfX2UleHKBI/6Wwk5kMLbxAbUO/5kOHxf8AnBaikz0Bd9Hjz2IrsQavPJDNYL+KXFveLOpfN2cc/Ae9HJ+1y33jEuNrhr7swGcHyWs1QOZiSGDRyue6FVH56A64SNDivtbOQ6DSoD7RgqBpRtdJPJvNzi6stcSyZys5dctpO0smWOAmO6+bymlZLuxe3ZBcbREq1XSQ1MOIyses/oh9mp+5rgw3V6jFhReZL/gwEpRAKmhd5W1VFoya7eu8ch2Q8zhUYbKvvQafx2NZnDPn5r9rIybloy3g3D6wqG1YNOyqhAbGTESKKKeJo39N/SIcmT4R1GD1R6cyFgZtZt49qm2Pi12zjGHBqRiTFrrxG7laOyf6xwf+5evOthy/ZYo03+/kdY/+54uiog0UPkOKNZxyCAtrL8+t1N/9AuoeL6s8XIFx/y7KCWlT84Wx7xtOgspebjL102bI8JM1f5AQ0yANtThxwPYeDwSNhnCXDhmz+Hwl3oXPE63//nxATT1Y4ZWdrmOJwG7UDLu2dZV4WOMwFZL49EBNKkgsIlZBIR90FMlEz1A2cdnVCqj3h+YKgCFkz7ARg98Ftfr6l4bDXoHfo=
+     - REPO_DIR="Python-software"
+     - BUILD_COMMIT=master
+     - PLAT=x86_64
+     - UNICODE_WIDTH=32
+     - NP_BUILD_DEP="numpy==1.8.1"
+     - NP_TEST_DEP="numpy==1.8.1"
+     - PANDAS_TEST_DEP="pandas==0.20.0"
+     - WHEELHOUSE_UPLOADER_USERNAME=travis-worker
+     - DAILY_COMMIT=master
+     - secure: GvBPjG1wglLiG3lpg8aNVKUwSeMXmgLS+ul14fdAd6rFi5E0tRQ/fidnOKWuD8jPHs9TTU7onbeGdW5soZtMfX2UleHKBI/6Wwk5kMLbxAbUO/5kOHxf8AnBaikz0Bd9Hjz2IrsQavPJDNYL+KXFveLOpfN2cc/Ae9HJ+1y33jEuNrhr7swGcHyWs1QOZiSGDRyue6FVH56A64SNDivtbOQ6DSoD7RgqBpRtdJPJvNzi6stcSyZys5dctpO0smWOAmO6+bymlZLuxe3ZBcbREq1XSQ1MOIyses/oh9mp+5rgw3V6jFhReZL/gwEpRAKmhd5W1VFoya7eu8ch2Q8zhUYbKvvQafx2NZnDPn5r9rIybloy3g3D6wqG1YNOyqhAbGTESKKKeJo39N/SIcmT4R1GD1R6cyFgZtZt49qm2Pi12zjGHBqRiTFrrxG7laOyf6xwf+5evOthy/ZYo03+/kdY/+54uiog0UPkOKNZxyCAtrL8+t1N/9AuoeL6s8XIFx/y7KCWlT84Wx7xtOgspebjL102bI8JM1f5AQ0yANtThxwPYeDwSNhnCXDhmz+Hwl3oXPE63//nxATT1Y4ZWdrmOJwG7UDLu2dZV4WOMwFZL49EBNKkgsIlZBIR90FMlEz1A2cdnVCqj3h+YKgCFkz7ARg98Ftfr6l4bDXoHfo=
+
 language: python
 python: 3.5
 sudo: required
