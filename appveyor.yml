@@ -36,8 +36,6 @@ environment:
       NP_TEST_DEP: "1.11.3"
     - PYTHON: C:\Python35
     - PYTHON: C:\Python35-x64
-    - PYTHON: C:\Python27
-    - PYTHON: C:\Python27-x64
 
 install:
   - cmd: echo "Using cmd"
