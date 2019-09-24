@@ -69,6 +69,7 @@ build_script:
   - cd Python-software
   - git fetch origin
   - git checkout %BUILD_COMMIT%
+  - git submodule update --init
   - python setup.py bdist_wheel
   - ps: |
       # Upload artifact to Appveyor immediately after build
